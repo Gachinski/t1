@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./media/lightning-fill.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <title>Панель</title>
+</head>
+
+<body>
+    <div class="preloader" id="preloader">
+        <span class="spinner-border spinner-border-xl" role="status" aria-hidden="true"></span>
+    </div>
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="/profile">
+                <img src="./media/lightning-fill.svg" alt="Home" />
+                <span>Express</span>
+            </a>
+            <div class="d-flex justify-content-end align-items-center  ">
+                <img src="./media/Ellipse 3.svg" alt="" class="mr-2" />
+                <div class="dropdown mr-2">
+                    <button class="btn align-items-center dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <span id="username" class="mr-4"></span><span>
+                            <img src="./media/chevron-up.svg" class="arrow " id="arrow" alt="" />
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <li>
+                            <a class="dropdown-item" href="/logout">
+                                <img src="./media/door-open.svg" class="mr-2" alt="" />
+                                Выйти
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div aria-live="polite" aria-atomic="true" style="position: relative;">
+            <div style="position: absolute; top: 0; right: 0;" id ="popup">
+                <!-- Popup here -->
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 d-sm-block d-xs-block d-lg-none d-md-none">
+                <div class="card-upper-col mt-3 mr-2 ml-2">
+                    <div class="row  justify-content-center">
+                        <div class="col-2">
+                            <a href="/profile">
+                                <img src="./media/files-alt.svg" alt="" class="mr-1" />
+                                Профиль
+                            </a>
+                        </div>
+                        <div class="col-2">
+                            <a href="/settings">
+                                <img src="./media/gear.svg" alt="" class="mr-1" /> Настройки
+                            </a>
+                        </div>
+                        <div class="col-2">
+                            <a href="/stats">
+                                <img src="./media/bar-chart.svg" alt="" class="mr-1" />
+                                Статистика
+                            </a>
+                        </div>
+                        <div class="col-2">
+                            <a href="/fakes">
+                                <img src="./media/display.svg" alt="" class="mr-1" /> Фейки
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2  rigth-col col-md-3 d-md-block d-lg-block d-none" id="col">
+                <div class="text-center mt-1 arrow-bar" id="remove-col">
+                    <img src="./media/arrow-bar-left.svg" id="arrow-bar" />
+                </div>
+                <ul class="mt-3 ml-3" id="list">
+                    <a href="/profile">
+                        <li class="list-item">
+                            <img src="./media/files-alt.svg" alt="" class="mr-1" /> Профиль
+                        </li>
+                    </a>
+                    <a href="/panel" class="current">
+                        <li class="list-item current">
+                            <img src="./media/card-list.svg" alt="" class="mr-1" /> Панель
+                        </li>
+                    </a>
+                    <a href="/stats">
+                        <li class="list-item">
+                            <img src="./media/bar-chart.svg" alt="" class="mr-1" />
+                            Статистика
+                        </li>
+                    </a>
+                    <a href="/fakes">
+                        <li class="list-item">
+                            <img src="./media/display.svg" alt="" class="mr-1" /> Фейки
+                        </li>
+                    </a>
+                    <a href="/settings">
+                        <li class="list-item ">
+                            <img src="./media/gear.svg" alt="" class="mr-1" /> Настройки
+                        </li>
+                    </a>
+                </ul>
+                <div class="text-center">
+                    <ul class="mt-3 icon-list" id="icon-list">
+                        <li class="list-item-icon">
+                            <img src="./media/files-alt.svg" alt="" class="mr-1" />
+                        </li>
+                        <li class="list-item-icon current">
+                            <img src="./media/card-list.svg" alt="" class="mr-1" />
+                        </li>
+                        <li class="list-item-icon">
+                            <img src="./media/bar-chart.svg" alt="" class="mr-1" />
+                        </li>
+                        <li class="list-item-icon">
+                            <img src="./media/display.svg" alt="" class="mr-1" />
+                        </li>
+                        <li class="list-item-icon ">
+                            <img src="./media/gear.svg" alt="" class="mr-1" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-12 " id ="main-col">
+                <div class="container-fluid mt-5">
+                    <div class="wrapper">
+                        <h3>Панель</h3>
+                        <div class="tools mb-2">
+                            <input class="form-check-input" type="checkbox"  id="main-checkbox">
+                            <div class="dropdown">
+                                <button class="btn align-items-center dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span id="download"></span><span>
+                                        <img src="./media/chevron-up.svg" class="arrow " id="arrow" alt="" />
+                                        Скачать
+                                    </span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                    <li>
+                                        <a class="dropdown-item" href="/logout">
+                                            Скачать все
+                                        </a>
+                                        <a class="dropdown-item" href="/logout">
+                                            Скачать выделенное
+                                        </a>
+                                        <!-- <a class="dropdown-item" href="/logout">
+                                            Скачать все
+                                         </a> -->
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="funnel mb-4"></div>
+
+                        <div class="accounts ">
+                            <div class="acc-item mb-3">
+                                <div class="acc-item-checkbox">
+                                    <input class="form-check-input acc-checkbox" type="checkbox">
+                                </div>
+                                <div class="acc-item-avatar">
+                                    <img src="https://sun9-42.userapi.com/impf/uF0mwA06zVrICt8Gsp3w0pCbcHtDMJ_p6O-ybw/6u7aVRuaCJI.jpg?size=500x500&quality=96&proxy=1&sign=d8fbc749d4d6a419872cd597aae64a20&type=album"
+                                        alt="" />
+                                </div>
+                                <div class="acc-item-name">
+                                    <span id="user_name">Иванов Иван</span><br />
+                                    <span id="user_id">ID: id44554517</span>
+                                </div>
+                                <div class="acc-item-data">
+                                    <span id="user_login">login: qwerrtr</span><br />
+                                    <span id="user_password">password: kfekfkefke</span>
+                                </div>
+                                <div class="acc-item-token">
+                                    <input type="text" id="acc-item-token" disabled value="hfghgfhfghfghfghfghfghfhhfghghfghfghfghfghf">
+                                </div>
+                                <div class="acc-item-friends">
+                                    <span id="user_friends">315</span>
+                                </div>
+                                <div class="acc-item-followers">
+                                    <span id="user_followers">971</span>
+                                </div>
+                                <div class="acc-item-valid">
+                                    <span id="user_valid">Валидный: да</span><br />
+                                    <span id="user_2fa">2FA: нет</span>
+                                </div>
+                                <div class="acc-item-validdate">
+                                    <span id="user_validdate">Проверен: 26.01.21</span><br />
+                                    <span id="user_addtime">Добавлен: 26.01.21</span>
+                                </div>
+                                <div class="acc-item-more">
+                                    <div class="acc-item-more-btn" id="acc-item-more-btn">
+                                        <img src="./media/three-dots.svg" class="more-btn">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="acc-item mb-3" id="#1">
+                                <div class="acc-item-checkbox">
+                                    <input class="form-check-input acc-checkbox" type="checkbox">
+                                </div>
+                                <div class="acc-item-avatar">
+                                    <img src="https://sun9-42.userapi.com/impf/uF0mwA06zVrICt8Gsp3w0pCbcHtDMJ_p6O-ybw/6u7aVRuaCJI.jpg?size=500x500&quality=96&proxy=1&sign=d8fbc749d4d6a419872cd597aae64a20&type=album"
+                                        alt="" />
+                                </div>
+                                <div class="acc-item-name">
+                                    <span id="user_name" class="user_name">Иванов Ивfdgfdgан</span><br />
+                                    <span id="user_id" class="user_id">ID: fgfgfdgdfg</span>
+                                </div>
+                                <div class="acc-item-data">
+                                    <span id="user_login">login: fdgfd</span><br />
+                                    <span id="user_password">password: fgfgfg</span>
+                                </div>
+                                <div class="acc-item-token">
+                                    <input type="text" id="acc-item-token" disabled value="fgfgfdgfgdf">
+                                </div>
+                                <div class="acc-item-friends">
+                                    <span id="user_friends">315</span>
+                                </div>
+                                <div class="acc-item-followers">
+                                    <span id="user_followers">971</span>
+                                </div>
+                                <div class="acc-item-valid">
+                                    <span id="user_valid">Валидный: да</span><br />
+                                    <span id="user_2fa">2FA: нет</span>
+                                </div>
+                                <div class="acc-item-validdate">
+                                    <span id="user_validdate">Проверен: 26.01.21</span><br />
+                                    <span id="user_addtime">Добавлен: 26.01.21</span>
+                                </div>
+                                <div class="acc-item-more">
+                                    <div class="acc-item-more-btn" id="acc-item-more-btn">
+                                        <img src="./media/three-dots.svg" class="more-btn">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="panel.scripts.js"></script>
+  <script src="main.scripts.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
