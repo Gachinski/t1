@@ -5,10 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
   let login = document.getElementById("login_input");
   let password = document.getElementById("password_input");
   let button = document.getElementById("login_btn");
-
+  
   //Check length login/password input (observer)
   function update() {
-    requestAnimationFrame(update);
     if (login.value.trim().length >= 1 && password.value.trim().length >= 1) {
       button.style.color = "#ffffff";
       button.style.border = "2px solid ";
@@ -23,8 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
       button.disabled = true;
     }
   }
-  update();
-
   
   if (location.search == "?wrongData=true") {
     document.getElementById("error-login").innerText = "Неверные данные";
@@ -37,4 +34,6 @@ document.addEventListener("DOMContentLoaded", function() {
       password.classList.remove("animate");
     }, 420);
   }
+  login.addEventListener('input', update)
+  password.addEventListener('input', update)
 });
