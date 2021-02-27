@@ -289,6 +289,6 @@ mongoClient.connect(function (err, client) {
 //   console.log("Сервер запущен: " + process.env.PORT);
 // });
 
-app.listen(5000, function () {
-  console.log("Сервер запущен: 5000");
+app.listen(5000 || process.env.PORT, function () {
+  console.log("Сервер запущен");
 });
